@@ -7,6 +7,27 @@
 
 This is the repo of the official [Yii 2.0 Framework](http://www.yiiframework.com/) image on [DockerHub](https://hub.docker.com/r/yiisoftware/yii2-php/) for PHP.
 
+## Changed version
+
+Please, to install locally follow the sequence:
+1. Clone this repo
+2. Run ```docker composer up -d``` from the root of the repo
+3. Run ```docker composer exec bash``` from the root of the repo
+4. Remove the web folder created on _host-volumes/app from the root of the repo
+5. Run ```composer create-project --prefer-dist yiisoft/yii2-app-basic /app```
+6. Your project is ready to run on http://localhost:8101|8102 
+7. You can run http://xdebug.localhost:8101|8102 for debug purposes too
+
+## Most important
+
+This respository is entire based on [YII 2.0 Framework](https://github.com/yiisoft/yii2-docker) and only changes below were made to fit the needs of the test.
+1. Code for Yii to work as API
+1. Added MySQL Docker image
+2. Angular added to work as client to do requests at API
+3. Angular code to work as client
+
+The rest of this documentation is from official image at this repository https://github.com/yiisoft/yii2-docker and all credits goes to the original authors.
+
 ## About
 
 These Docker images are built on top of the official PHP Docker image, they contain additional PHP extensions required to run Yii 2.0 framework, but no code of the framework itself.
