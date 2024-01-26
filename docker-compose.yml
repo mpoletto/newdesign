@@ -2,8 +2,23 @@ version: '2.2'
 
 networks:
   default:
+  mysql_service:
 
 services:
+
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - mysql_service
+    ports:
+      - "3306:3306"
 
   php-min:
     build:
@@ -32,6 +47,7 @@ services:
       default:
         aliases:
           - php
+          - mysql_service
 
   php-dev:
     extends:
@@ -39,20 +55,3 @@ services:
     build:
       target: dev
     image: ${PHP_IMAGE_NAME}:${PHP_BASE_IMAGE_VERSION}${PHP_IMAGE_VERSION_SUFFIX}
-
-  db:
-    image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    networks:
-      default:
-        aliases:
-          - php 
-          - mysql
-    # ports:
-    #   - "3306:3306"

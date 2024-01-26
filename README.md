@@ -12,11 +12,17 @@ This is the repo of the official [Yii 2.0 Framework](http://www.yiiframework.com
 Please, to install locally follow the sequence:
 1. Clone this repo
 2. Run ```docker composer up -d``` from the root of the repo
-3. Run ```docker composer exec bash``` from the root of the repo
-4. Remove the web folder created on _host-volumes/app from the root of the repo
-5. Run ```composer create-project --prefer-dist yiisoft/yii2-app-basic /app```
-6. Your project is ready to run on http://localhost:8101|8102 
-7. You can run http://xdebug.localhost:8101|8102 for debug purposes too
+3. Run ```docker exec -it <container-id> bash``` from the root of the repo
+4. cd /app (if not yet there)
+5. composer create-project --prefer-dist web yii-application
+6. php /caminho/para/aplicacao-yii/init
+7. Remove the web folder created on _host-volumes/app from the root of the repo
+8. 
+9. Run ```composer create-project --prefer-dist yiisoft/yii2-app-basic /app```
+10. Run chown -R www-data:www-data /app
+11. Your project is ready to run on http://localhost:8101|8102 
+12. 
+13. You can run http://xdebug.localhost:8101|8102 for debug purposes too
 
 ## Most important
 

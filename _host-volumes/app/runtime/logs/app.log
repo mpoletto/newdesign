@@ -1,0 +1,289 @@
+2024-01-25 20:47:15 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'user' already exists in /app/api/vendor/yiisoft/yii2/db/Command.php:1320
+Stack trace:
+#0 /app/api/vendor/yiisoft/yii2/db/Command.php(1320): PDOStatement->execute()
+#1 /app/api/vendor/yiisoft/yii2/db/Command.php(1120): yii\db\Command->internalExecute('CREATE TABLE `u...')
+#2 /app/api/vendor/yiisoft/yii2/db/Migration.php(334): yii\db\Command->execute()
+#3 /app/api/migrations/m141022_115823_create_user_table.php(17): yii\db\Migration->createTable('{{%user}}', Array, 'CHARACTER SET u...')
+#4 /app/api/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(758): m141022_115823_create_user_table->up()
+#5 /app/api/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(216): yii\console\controllers\BaseMigrateController->migrateUp('m141022_115823_...')
+#6 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#7 /app/api/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /app/api/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#9 /app/api/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('', Array)
+#10 /app/api/vendor/yiisoft/yii2/base/Module.php(552): yii\console\Controller->runAction('', Array)
+#11 /app/api/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#12 /app/api/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#13 /app/api/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /app/api/yii(20): yii\base\Application->run()
+#15 {main}
+
+Next yii\db\Exception: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'user' already exists
+The SQL being executed was: CREATE TABLE `user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` varchar(255) NOT NULL UNIQUE,
+	`email` varchar(255) NOT NULL UNIQUE,
+	`password_hash` varchar(255) NOT NULL,
+	`status` smallint(6) NOT NULL,
+	`auth_key` varchar(32) NOT NULL,
+	`password_reset_token` varchar(255) UNIQUE,
+	`account_activation_token` varchar(255) UNIQUE,
+	`created_at` int(11) NOT NULL,
+	`updated_at` int(11) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB in /app/api/vendor/yiisoft/yii2/db/Schema.php:676
+Stack trace:
+#0 /app/api/vendor/yiisoft/yii2/db/Command.php(1325): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `u...')
+#1 /app/api/vendor/yiisoft/yii2/db/Command.php(1120): yii\db\Command->internalExecute('CREATE TABLE `u...')
+#2 /app/api/vendor/yiisoft/yii2/db/Migration.php(334): yii\db\Command->execute()
+#3 /app/api/migrations/m141022_115823_create_user_table.php(17): yii\db\Migration->createTable('{{%user}}', Array, 'CHARACTER SET u...')
+#4 /app/api/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(758): m141022_115823_create_user_table->up()
+#5 /app/api/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(216): yii\console\controllers\BaseMigrateController->migrateUp('m141022_115823_...')
+#6 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#7 /app/api/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /app/api/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#9 /app/api/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('', Array)
+#10 /app/api/vendor/yiisoft/yii2/base/Module.php(552): yii\console\Controller->runAction('', Array)
+#11 /app/api/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#12 /app/api/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#13 /app/api/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /app/api/yii(20): yii\base\Application->run()
+#15 {main}
+Additional Information:
+Array
+(
+    [0] => 42S01
+    [1] => 1050
+    [2] => Table 'user' already exists
+)
+
+2024-01-25 20:47:12 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PHP_ENABLE_XDEBUG' => '1'
+    'PHP_USER_ID' => '33'
+    'HOSTNAME' => 'bc4d754e7a9a'
+    'PHP_VERSION' => '8.2.15'
+    'APACHE_CONFDIR' => '/etc/apache2'
+    'PHP_INI_DIR' => '/usr/local/etc/php'
+    'GPG_KEYS' => '39B641343D8C104B2B146DC3F9C39DC0B9698544 E60913E4DF209907D8E30D96659A97C9CF2A795A 1198C0117593497A5EC5C199286AF1F9897469DC'
+    'PHP_LDFLAGS' => '-Wl,-O1 -pie'
+    'PWD' => '/app/api'
+    'HOME' => '/root'
+    'TEST_RUNTIME_PATH' => '/tmp/runtime'
+    'PHP_SHA256' => 'eca5deac02d77d806838275f8a3024b38b35ac0a5d9853dcc71c6cbe3f1f8765'
+    'PHPIZE_DEPS' => 'autoconf 		dpkg-dev 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c'
+    'GITHUB_API_TOKEN' => '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'
+    'TERM' => 'linux'
+    'PHP_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz'
+    'SHLVL' => '1'
+    'COMPOSER_ALLOW_SUPERUSER' => '1'
+    'PHP_CFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    'APACHE_ENVVARS' => '/etc/apache2/envvars'
+    'PATH' => '/app:/app/vendor/bin:/root/.composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'PHP_ASC_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz.asc'
+    'PHP_CPPFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    '_' => '/usr/local/bin/php'
+    'OLDPWD' => '/app'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1706215632.1362
+    'REQUEST_TIME' => 1706215632
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
+2024-01-25 20:53:22 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: migrate/drop in /app/api/vendor/yiisoft/yii2/base/Controller.php:149
+Stack trace:
+#0 /app/api/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('drop', Array)
+#1 /app/api/vendor/yiisoft/yii2/base/Module.php(552): yii\console\Controller->runAction('drop', Array)
+#2 /app/api/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate/drop', Array)
+#3 /app/api/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate/drop', Array)
+#4 /app/api/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /app/api/yii(20): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "migrate/drop". in /app/api/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /app/api/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate/drop', Array)
+#1 /app/api/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /app/api/yii(20): yii\base\Application->run()
+#3 {main}
+2024-01-25 20:53:22 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PHP_ENABLE_XDEBUG' => '1'
+    'PHP_USER_ID' => '33'
+    'HOSTNAME' => 'bc4d754e7a9a'
+    'PHP_VERSION' => '8.2.15'
+    'APACHE_CONFDIR' => '/etc/apache2'
+    'PHP_INI_DIR' => '/usr/local/etc/php'
+    'GPG_KEYS' => '39B641343D8C104B2B146DC3F9C39DC0B9698544 E60913E4DF209907D8E30D96659A97C9CF2A795A 1198C0117593497A5EC5C199286AF1F9897469DC'
+    'PHP_LDFLAGS' => '-Wl,-O1 -pie'
+    'PWD' => '/app/api'
+    'HOME' => '/root'
+    'TEST_RUNTIME_PATH' => '/tmp/runtime'
+    'PHP_SHA256' => 'eca5deac02d77d806838275f8a3024b38b35ac0a5d9853dcc71c6cbe3f1f8765'
+    'PHPIZE_DEPS' => 'autoconf 		dpkg-dev 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c'
+    'GITHUB_API_TOKEN' => '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'
+    'TERM' => 'linux'
+    'PHP_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz'
+    'SHLVL' => '1'
+    'COMPOSER_ALLOW_SUPERUSER' => '1'
+    'PHP_CFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    'APACHE_ENVVARS' => '/etc/apache2/envvars'
+    'PATH' => '/app:/app/vendor/bin:/root/.composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'PHP_ASC_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz.asc'
+    'PHP_CPPFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    '_' => '/usr/local/bin/php'
+    'OLDPWD' => '/app'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1706216002.0829
+    'REQUEST_TIME' => 1706216002
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/drop'
+    ]
+    'argc' => 2
+]
+2024-01-25 22:43:00 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "user". in /app/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /app/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('user', Array)
+#1 /app/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('user', Array)
+#2 /app/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 /app/yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "user". in /app/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /app/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('user', Array)
+#1 /app/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /app/yii(20): yii\base\Application->run()
+#3 {main}
+2024-01-25 22:43:00 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PHP_ENABLE_XDEBUG' => '1'
+    'PHP_USER_ID' => '33'
+    'HOSTNAME' => 'bc4d754e7a9a'
+    'PHP_VERSION' => '8.2.15'
+    'APACHE_CONFDIR' => '/etc/apache2'
+    'PHP_INI_DIR' => '/usr/local/etc/php'
+    'GPG_KEYS' => '39B641343D8C104B2B146DC3F9C39DC0B9698544 E60913E4DF209907D8E30D96659A97C9CF2A795A 1198C0117593497A5EC5C199286AF1F9897469DC'
+    'PHP_LDFLAGS' => '-Wl,-O1 -pie'
+    'PWD' => '/app'
+    'HOME' => '/root'
+    'TEST_RUNTIME_PATH' => '/tmp/runtime'
+    'PHP_SHA256' => 'eca5deac02d77d806838275f8a3024b38b35ac0a5d9853dcc71c6cbe3f1f8765'
+    'PHPIZE_DEPS' => 'autoconf 		dpkg-dev 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c'
+    'GITHUB_API_TOKEN' => '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'
+    'TERM' => 'linux'
+    'PHP_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz'
+    'SHLVL' => '1'
+    'COMPOSER_ALLOW_SUPERUSER' => '1'
+    'PHP_CFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    'APACHE_ENVVARS' => '/etc/apache2/envvars'
+    'PATH' => '/app:/app/vendor/bin:/root/.composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'PHP_ASC_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz.asc'
+    'PHP_CPPFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    '_' => '/usr/local/bin/php'
+    'OLDPWD' => '/'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1706222580.7264
+    'REQUEST_TIME' => 1706222580
+    'argv' => [
+        0 => 'yii'
+        1 => 'user'
+    ]
+    'argc' => 2
+]
+2024-01-25 22:43:10 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "signup". in /app/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /app/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('signup', Array)
+#1 /app/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('signup', Array)
+#2 /app/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 /app/yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "signup". in /app/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /app/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('signup', Array)
+#1 /app/vendor/yiisoft/yii2/base/Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /app/yii(20): yii\base\Application->run()
+#3 {main}
+2024-01-25 22:43:10 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PHP_ENABLE_XDEBUG' => '1'
+    'PHP_USER_ID' => '33'
+    'HOSTNAME' => 'bc4d754e7a9a'
+    'PHP_VERSION' => '8.2.15'
+    'APACHE_CONFDIR' => '/etc/apache2'
+    'PHP_INI_DIR' => '/usr/local/etc/php'
+    'GPG_KEYS' => '39B641343D8C104B2B146DC3F9C39DC0B9698544 E60913E4DF209907D8E30D96659A97C9CF2A795A 1198C0117593497A5EC5C199286AF1F9897469DC'
+    'PHP_LDFLAGS' => '-Wl,-O1 -pie'
+    'PWD' => '/app'
+    'HOME' => '/root'
+    'TEST_RUNTIME_PATH' => '/tmp/runtime'
+    'PHP_SHA256' => 'eca5deac02d77d806838275f8a3024b38b35ac0a5d9853dcc71c6cbe3f1f8765'
+    'PHPIZE_DEPS' => 'autoconf 		dpkg-dev 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c'
+    'GITHUB_API_TOKEN' => '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'
+    'TERM' => 'linux'
+    'PHP_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz'
+    'SHLVL' => '1'
+    'COMPOSER_ALLOW_SUPERUSER' => '1'
+    'PHP_CFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    'APACHE_ENVVARS' => '/etc/apache2/envvars'
+    'PATH' => '/app:/app/vendor/bin:/root/.composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'PHP_ASC_URL' => 'https://www.php.net/distributions/php-8.2.15.tar.xz.asc'
+    'PHP_CPPFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    '_' => '/usr/local/bin/php'
+    'OLDPWD' => '/'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1706222590.4026
+    'REQUEST_TIME' => 1706222590
+    'argv' => [
+        0 => 'yii'
+        1 => 'signup'
+    ]
+    'argc' => 2
+]
